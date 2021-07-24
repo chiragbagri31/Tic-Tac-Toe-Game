@@ -1,15 +1,11 @@
 package Exercises;
-
 import java.util.Scanner;
-
-
 public class TicTacToe
 {
     private int counter;
     private   char posn[]=new char[10];
     private   char player;
-    
-    
+
     public static void main(String args[])
     {
         String ch;
@@ -21,22 +17,19 @@ public class TicTacToe
             Scanner in =new Scanner(System.in);
             ch=in.nextLine();
             System.out.println("ch value is  "+ch);
-        }while (ch.equals("yes"));
-        
-        
+        }while (ch.equals("yes"));    
     }
+    
     public  void newBoard()
-    {
-        
+    {   
         char posndef[] = {'0','1', '2', '3', '4', '5', '6', '7', '8', '9'};
         int i;
         counter = 0;
         player = 'X';
         for (i=1; i<10; i++) posn[i]=posndef[i];
         currentBoard();
-        
-        
     }
+    
     public  String currentBoard()
     {
     	System.out.println(  "" +posn [1]+ "  | " +posn [2]+ "  | " +posn [3]);
@@ -68,21 +61,16 @@ public class TicTacToe
                 posTaken = checkPosn(spot);
                 if(posTaken==false)
                 posn[spot]=getPlayer();
-            }
-            
+            } 
             System.out.println(  "Nice move." );
-            
             currentBoard();              // display current board
-            
             nextPlayer();
-        }while ( checkWinner() == blank );
-        
+        }while ( checkWinner() == blank );  
     }
     
     public  char checkWinner()
     {
         char Winner = ' ';
-        
         // Check if X wins
         if (posn[1] == 'X' && posn[2] == 'X' && posn[3] == 'X') Winner = 'X';
         if (posn[4] == 'X' && posn[5] == 'X' && posn[6] == 'X') Winner = 'X';
@@ -125,17 +113,13 @@ public class TicTacToe
                 continue;
             }
             else
-            break;
-            
+            break; 
         }
-        
         return Winner;
     }
     
     public  boolean checkPosn(int spot)
-    {
-        
-        
+    {  
         if (posn[spot] == 'X' || posn[spot] == 'O')
         {
             System.out.println("That posn is already taken, please choose another");
@@ -149,14 +133,11 @@ public class TicTacToe
         //    return false;
     }
     
-    
-    
     public  void nextPlayer()
     {
         if (player == 'X')
         player = 'O';
-        else player = 'X';
-        
+        else player = 'X';  
     }
     
     public String getTitle()
